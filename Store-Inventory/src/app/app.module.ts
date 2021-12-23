@@ -20,6 +20,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { LoginComponent } from './components/login/login.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 //import { DirectionsBikeIcon } from '@mui/icons-material/DirectionsBike';
 
@@ -45,6 +47,8 @@ import { LoginComponent } from './components/login/login.component';
     MatIconModule,
     MatDividerModule,
     MatFormFieldModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
     MatInputModule
   
     //DirectionsBikeIcon
