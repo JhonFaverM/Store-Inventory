@@ -13,21 +13,22 @@ import { SharedModule } from './components/shared/shared.module';
 
 //componentes
 import { LoginComponent } from './components/login/login.component';
-import { ProductsComponent } from './components/products/products.component';
+//import { DashboarComponent } from './components/dashboar/dashboar.component';
+//import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent,
     LoginComponent,
+    //DashboarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
     //MatToolbarModule,
   ],
   providers: [],
