@@ -8,6 +8,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductsComponent } from './products/products.component';
 import { ClientsComponent } from './clients/clients.component';
+import { AccesoriosComponent } from './accesorios/accesorios.component';
+import { FacturasComponent } from './facturas/facturas.component';
 
 
 @NgModule({
@@ -16,12 +18,14 @@ import { ClientsComponent } from './clients/clients.component';
     InicioComponent,
     NavbarComponent,
     ProductsComponent,
-    ClientsComponent
+    ClientsComponent,
+    AccesoriosComponent,
+    FacturasComponent,
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class DashboardModule { }

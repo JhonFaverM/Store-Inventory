@@ -11,7 +11,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 
@@ -26,7 +28,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule
   ],
   exports: [
     MatFormFieldModule,
@@ -35,7 +38,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule
   ]
 })
 export class SharedModule { }

@@ -1,1 +1,14 @@
-<p>navbar works!</p>
+
+<mat-toolbar color="primary">
+    <span>Bicycle Shop</span>
+    <span class="example-spacer"></span>
+    <button mat-button color="secundary" routerLink="/dashboard">Dashboard</button>
+    <button mat-button routerLink="/dashboard/clients" color="secundary">Clientes</button>
+    <button mat-button routerLink="/Dashboard/Products" color="secundary">Productos</button>
+    <button mat-button routerLink="/dashboard/Accesorios" color="secundary">Accesorios</button>
+    <button mat-button routerLink="/dashboard/Facturas" color="secundary">Facturas</button>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>logout</mat-icon>
+      </button>
+  </mat-toolbar>
