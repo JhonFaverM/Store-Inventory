@@ -1,7 +1,7 @@
 export interface factura {
-    invoice: number,
-    date: number,
-    client: string,
-    seller: string,
-    billScam: string
+    factura: number,
+    cliente: string,
+    vendedor: string,
+    estadoFactura: string,
+    fecha: string,
 }

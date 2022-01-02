@@ -10,6 +10,7 @@ import { ProductsComponent } from './products/products.component';
 import { ClientsComponent } from './clients/clients.component';
 import { AccesoriosComponent } from './accesorios/accesorios.component';
 import { FacturasComponent } from './facturas/facturas.component';
+import { CrearFacturaComponent } from './facturas/crear-factura/crear-factura.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { FacturasComponent } from './facturas/facturas.component';
     ClientsComponent,
     AccesoriosComponent,
     FacturasComponent,
+    CrearFacturaComponent,
   ],
   imports: [
     CommonModule,

@@ -18,25 +18,6 @@
       {
         "nombre": "Facturas",
         "redirect": "/dashboard/facturas"
-      },
-     {
-        "nombre": "Dashboard",
-        "redirect": "/"
-      },
-      {
-          "nombre": "Clientes",
-          "redirect": "/dashboard/clients"
-        },
-        {
-          "nombre": "Productos",
-          "redirect": "/dashboard/products"
-        },
-        {
-          "nombre": "Accesorios",
-          "redirect": "/dashboard/accesorios"
-        },
-        {
-          "nombre": "Facturas",
-          "redirect": "/dashboard/facturas"
-        }
+      }
+     
 ]

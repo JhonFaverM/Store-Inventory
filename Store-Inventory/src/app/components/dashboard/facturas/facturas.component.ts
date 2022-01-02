@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { FacturaService } from 'src/app/services/factura.service';
+import { factura } from '../interfaces/factura';
 
+/*
 export interface PeriodicElement {
   date: string;
   invoice: number;
@@ -7,11 +14,9 @@ export interface PeriodicElement {
   seller: string;
   billScam: string;
 }
+*/
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {invoice: 1, date: '20/12/2021', client: 'Jhon Machado', seller: 'Molusca', billScam: 'pagada'},
-  
-];
+
 
 @Component({
   selector: 'app-facturas',
@@ -19,12 +24,55 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./facturas.component.css']
 })
 export class FacturasComponent implements OnInit {
-  displayedColumns: string[] = ['invoice', 'date', 'client', 'seller', 'bill scam'];
-  dataSource = ELEMENT_DATA;
 
-  constructor() { }
+  listFacturas: factura[] = [];
+  displayedColumns: string[] = ['factura', 'cliente', 'vendedor', 'estadoFactura', 'fecha', 'acciones'];
+  dataSource!: MatTableDataSource<any>;
+  //= new MatTableDataSource(this.listFacturas);
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  /*
+  factura: number,
+    cliente: string,
+    vendedor: string,
+    estadoFactura: string,
+    fecha: string,
+  */
+
+  constructor(private _facturaService: FacturaService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.cargarFactura();
+  }
+
+  cargarFactura() {
+    this.listFacturas = this._facturaService.getFactura();
+    this.dataSource = new MatTableDataSource(this.listFacturas);
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  eliminarFactura(index: number) {
+    console.log(index);
+
+    this._facturaService.eliminarFactura(index);
+    this.cargarFactura();
+
+    this._snackBar.open('Factura eliminada', '', {
+      duration: 1500,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
+    })
   }
 
 }

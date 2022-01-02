@@ -6,43 +6,76 @@
     <div class="container">
         <mat-toolbar>
             <span>Registrar clientes</span>
+            <div class="example-spacer"></div>
+            <button mat-button color="primary" routerLink="/dashboard/crear-factura">Crear Factura</button>
         </mat-toolbar>
-    
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z1">
-    
-          
-            <!-- Position Column -->
-            <ng-container matColumnDef="invoice">
-              <th mat-header-cell *matHeaderCellDef> Factura </th>
-              <td mat-cell *matCellDef="let element"> {{element.invoice}} </td>
-            </ng-container>
-          
-            <!-- Name Column -->
-            <ng-container matColumnDef="date">
-              <th mat-header-cell *matHeaderCellDef> Fecha </th>
-              <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-            </ng-container>
-          
-            <!-- Weight Column -->
-            <ng-container matColumnDef="client">
-              <th mat-header-cell *matHeaderCellDef> Cliente </th>
-              <td mat-cell *matCellDef="let element"> {{element.client}} </td>
-            </ng-container>
-          
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="seller">
-              <th mat-header-cell *matHeaderCellDef> Vendedor </th>
-              <td mat-cell *matCellDef="let element"> {{element.seller}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="bill scam">
-                <th mat-header-cell *matHeaderCellDef> Estado Factura </th>
-                <td mat-cell *matCellDef="let element"> {{element.billScam}} </td>
+        
+        
+        <div *ngIf="listFacturas.length > 0">
+          <mat-form-field appearance="standard">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input autocomplete="off">
+          </mat-form-field>
+          <div class="mat-elevation-z1">
+            <table mat-table [dataSource]="dataSource" matSort>
+      
+            
+              <!-- Position Column -->
+              <ng-container matColumnDef="factura">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Factura </th>
+                <td mat-cell *matCellDef="let element"> {{element.factura}} </td>
               </ng-container>
-          
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-    </div>
-    
-</div>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="fecha">
+                <th mat-header-cell *matHeaderCellDef> Fecha </th>
+                <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+              </ng-container>
+            
+              <!-- Weight Column -->
+              <ng-container matColumnDef="cliente">
+                <th mat-header-cell *matHeaderCellDef> Cliente </th>
+                <td mat-cell *matCellDef="let element"> {{element.cliente}} </td>
+              </ng-container>
+            
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="vendedor">
+                <th mat-header-cell *matHeaderCellDef> Vendedor </th>
+                <td mat-cell *matCellDef="let element"> {{element.vendedor}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="estadoFactura">
+                  <th mat-header-cell *matHeaderCellDef> Estado Factura </th>
+                  <td mat-cell *matCellDef="let element"> {{element.estadoFactura}} </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="acciones">
+                  <th mat-header-cell *matHeaderCellDef></th>
+                  <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;">
+                    <a class="pointer" style="color: #1878b0;"  matTooltip="Ver factura">
+                      <mat-icon>search</mat-icon>
+                    </a>
+                    <a class="pointer" style="color:black;" matTooltip="Editar factura">
+                      <mat-icon>edit</mat-icon>
+                    </a>
+                    <a class="pointer" (click)="eliminarFactura(i)" style="color:red;" matTooltip="Eliminar factura">
+                      <mat-icon>delete</mat-icon>
+                    </a>
+                  </td>
+                </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons 
+                   aria-label="Select page of periodic elements"></mat-paginator>
+      </div>
+      
+          </div>
+  
+    <h2 *ngIf="listFacturas.length == 0">No hay facturas para mostrar</h2>
+  </div>
+        </div>
+
+        

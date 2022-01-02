@@ -1,0 +1,52 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Crear Factura</span>
+    </mat-toolbar>
+
+    <mat-card style="margin-top: 10px;">
+        <form autocomplete="off" [formGroup]="form" (ngSubmit)="agregarFactura()">
+            <mat-grid-list cols="4" rowHeight="70">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="ancho">
+                        <mat-label>Factura</mat-label>
+                        <input matInput formControlName="factura">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="3" [rowspan]="5" >
+                    <img src="./assets/img/png-logo.png" width="400" height="300">
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <mat-form-field class="ancho">
+                        <mat-label>Cliente</mat-label>
+                        <input matInput formControlName="cliente">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <mat-form-field class="ancho">
+                        <mat-label>Vendedor</mat-label>
+                        <input matInput formControlName="vendedor">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <mat-form-field class="ancho">
+                        <mat-label>Estado factura</mat-label>
+                        <input matInput formControlName="estadoFactura">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="ancho">
+                        <mat-label>Fecha</mat-label>
+                        <input matInput formControlName="fecha">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <button mat-raised-button style="margin-right: 20px;">Volver</button>
+                    <button type="submit" mat-raised-button color="primary">Aceptar</button>
+                </mat-grid-tile>
+
+            </mat-grid-list>
+           
+        </form>
+    
+    </mat-card>
+</div>

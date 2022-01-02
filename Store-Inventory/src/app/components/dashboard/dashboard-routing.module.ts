@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccesoriosComponent } from './accesorios/accesorios.component';
 import { ClientsComponent } from './clients/clients.component';
 import { DashboardComponent } from './dashboard.component';
+import { CrearFacturaComponent } from './facturas/crear-factura/crear-factura.component';
 import { FacturasComponent } from './facturas/facturas.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ProductsComponent } from './products/products.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
     { path: 'products',component: ProductsComponent },
     { path: 'accesorios',component:  AccesoriosComponent},
     { path: 'facturas',component:  FacturasComponent },
+    { path: 'crear-factura',component:  CrearFacturaComponent },
   ]}
 ];
 
