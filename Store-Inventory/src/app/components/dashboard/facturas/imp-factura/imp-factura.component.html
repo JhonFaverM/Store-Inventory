@@ -1,0 +1,40 @@
+<p>imp-factura works!</p>
+
+<div class="container">
+    <mat-toolbar>
+        <span>Imprimir Factura</span>
+    </mat-toolbar>
+
+    <div class="container">
+        <div class="mat-elevation-z1">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="producto">
+                    <th mat-header-cell *matHeaderCellDef class="color"> PRODUCTO </th>
+                    <td mat-cell *matCellDef="let element" class="colorido"> {{element.producto}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="cantidad">
+                    <th mat-header-cell *matHeaderCellDef class="color"> CANTIDAD </th>
+                    <td mat-cell *matCellDef="let element" class="colord"> {{element.cantidad}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="precioUnitario">
+                    <th mat-header-cell *matHeaderCellDef class="color"> PRECIO UNITARIO </th>
+                    <td mat-cell *matCellDef="let element" class="colon"> {{element.precioUnitario}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="precioTotal">
+                    <th mat-header-cell *matHeaderCellDef class="color"> PRECIO TOTAL </th>
+                    <td mat-cell *matCellDef="let element" class="colors"> {{element.precioTotal}} </td>
+                </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

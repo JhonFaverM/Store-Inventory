@@ -1,7 +1,9 @@
 export interface factura {
-    factura: number,
-    cliente: string,
+    producto: string,
+    cantidad: number,
     vendedor: string,
-    estadoFactura: string,
-    fecha: string,
+    //estadoFactura: string,
+    precioUnitario: number,
+    precioTotal: number,
+    verFactura: string,
 }

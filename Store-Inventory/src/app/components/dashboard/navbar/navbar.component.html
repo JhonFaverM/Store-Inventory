@@ -5,17 +5,6 @@
     <button mat-button color="secundary" *ngFor="let item of menu" [routerLink]="item.redirect">{{ item.nombre }}</button>
     <span class="example-spacer"></span>
     <button routerLink="/dashboard/login" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>logout</mat-icon>
-      </button>
-  </mat-toolbar>
-
-
-
-
-
-  <!-- 
-      <button mat-button routerLink="/dashboard/clients" color="secundary">Clientes</button>
-    <button mat-button routerLink="/dashboard/products" color="secundary">Productos</button>
-    <button mat-button routerLink="/dashboard/accesorios" color="secundary">Accesorios</button>
-    <button mat-button routerLink="/dashboard/facturas" color="secundary">Facturas</button>
-  -->
+        <mat-icon matTooltip="Salir">logout</mat-icon>
+    </button>
+</mat-toolbar>

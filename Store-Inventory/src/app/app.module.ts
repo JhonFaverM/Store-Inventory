@@ -13,6 +13,7 @@ import { SharedModule } from './components/shared/shared.module';
 
 //componentes
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import { DashboarComponent } from './components/dashboar/dashboar.component';
 //import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -29,6 +30,9 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    FormsModule,
+    ReactiveFormsModule
+
     //MatToolbarModule,
   ],
   providers: [],

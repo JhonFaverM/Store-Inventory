@@ -26,8 +26,9 @@ export interface PeriodicElement {
 export class FacturasComponent implements OnInit {
 
   listFacturas: factura[] = [];
-  displayedColumns: string[] = ['factura', 'cliente', 'vendedor', 'estadoFactura', 'fecha', 'acciones'];
+  displayedColumns: string[] = ['producto', 'cantidad', 'precioUnitario', 'precioTotal', 'vendedor', 'fecha', 'acciones', 'verFactura',];
   dataSource!: MatTableDataSource<any>;
+  public dateNow = new Date()
   //= new MatTableDataSource(this.listFacturas);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

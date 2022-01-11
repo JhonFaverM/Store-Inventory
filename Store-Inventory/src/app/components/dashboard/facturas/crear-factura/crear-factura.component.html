@@ -1,52 +1,111 @@
-<div class="container">
-    <mat-toolbar>
-        <span>Crear Factura</span>
-    </mat-toolbar>
 
+
+<div class="container">
+
+        <mat-card style="margin-top: 10px;">
+            <form autocomplete="off" [formGroup]="form" (ngSubmit)="agregarFactura()">
+                <mat-grid-list cols="1" rowHeight="60">
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <mat-form-field class="longitud">
+                            <mat-label class="color">Cliente</mat-label>
+                            <input matInput formControlName="factura">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <mat-form-field class="longitud">
+                                    <mat-label class="color">Vendedor</mat-label>
+                                    <mat-select formControlName="vendedor">
+                                      <mat-option *ngFor="let item of vendedor" [value]="item">
+                                        {{item}}
+                                      </mat-option>
+                                    </mat-select>
+                            <input matInput>
+                        </mat-form-field>
+                    </mat-grid-tile>
+    
+                </mat-grid-list>
+            </form>
+        </mat-card>
+                
+            
+    <h1 class="color_1">Adicionar Productos</h1>
+
+    
+    
     <mat-card style="margin-top: 10px;">
         <form autocomplete="off" [formGroup]="form" (ngSubmit)="agregarFactura()">
-            <mat-grid-list cols="4" rowHeight="70">
+            
+            <mat-grid-list cols="1" rowHeight="70">
+            <img src="../../../assets/img/fondo.jpg" width="30%">
+            
+                    
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">                
+                        <mat-form-field class="ancho">
+                            <label form="" class="color">Producto</label>
+                            <mat-select class="form-control" formControlName="producto">
+                                <mat-option *ngFor="let item of producto" [value]="item">
+                                    {{item}}
+                                </mat-option>                           
+                            </mat-select>
+                            <input matInput formControlName="producto">
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+
+                    <!-- 
+                        <mat-option *ngFor="let nombre of producto" [value]="producto">
+                                {{producto}}
+                                </mat-option>
+                    -->
+
+
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <mat-form-field class="ancho">
+                        <mat-label form="" class="color">Cantidad</mat-label>
+                        <input type="number" matInput formControlName="cantidad" >
+                    </mat-form-field>
+                </mat-grid-tile>
+                
+
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
                     <mat-form-field class="ancho">
-                        <mat-label>Factura</mat-label>
-                        <input matInput formControlName="factura">
+                        <mat-label class="color">Precio Unit</mat-label>
+                        <input type="number" matInput formControlName="precioUnitario">
                     </mat-form-field>
                 </mat-grid-tile>
-                <mat-grid-tile [colspan]="3" [rowspan]="5" >
-                    <img src="./assets/img/png-logo.png" width="400" height="300">
-                </mat-grid-tile>
+
                 <mat-grid-tile [colspan]="1" [rowspan]="1" >
                     <mat-form-field class="ancho">
-                        <mat-label>Cliente</mat-label>
-                        <input matInput formControlName="cliente">
+                        <mat-label class="color">Precio Total</mat-label>                      
+                        <input type="number" matInput formControlName="precioTotal">
                     </mat-form-field>
                 </mat-grid-tile>
+
                 <mat-grid-tile [colspan]="1" [rowspan]="1" >
-                    <mat-form-field class="ancho">
-                        <mat-label>Vendedor</mat-label>
-                        <input matInput formControlName="vendedor">
-                    </mat-form-field>
+                    <button type="submit" mat-raised-button color="primary">Agregar</button>
                 </mat-grid-tile>
-                <mat-grid-tile [colspan]="1" [rowspan]="1" >
-                    <mat-form-field class="ancho">
-                        <mat-label>Estado factura</mat-label>
-                        <input matInput formControlName="estadoFactura">
-                    </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile [colspan]="1" [rowspan]="1">
-                    <mat-form-field class="ancho">
-                        <mat-label>Fecha</mat-label>
-                        <input matInput formControlName="fecha">
-                    </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile [colspan]="1" [rowspan]="1" >
-                    <button mat-raised-button style="margin-right: 20px;">Volver</button>
-                    <button type="submit" mat-raised-button color="primary">Aceptar</button>
-                </mat-grid-tile>
+
+                               
 
             </mat-grid-list>
            
+
+        
+
         </form>
     
     </mat-card>
 </div>
+
+
+     
+
+
+
+
+
+
+
+
+

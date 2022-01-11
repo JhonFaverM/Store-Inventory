@@ -7,9 +7,8 @@ import { factura } from '../components/dashboard/interfaces/factura';
 export class FacturaService {
 
   listFacturas: factura[] = [
-    {factura: 1, fecha: '20/12/2021', cliente: 'Jhon Machado', vendedor: 'Molusca', estadoFactura: 'pagada'},
-    {factura: 2, fecha: '20/12/2021', cliente: 'molusca', vendedor: 'tusca', estadoFactura: 'pagada'},
-    
+    {producto: 'Casettera', cantidad: 1, vendedor: 'Monika Lopez', precioUnitario: 100000, precioTotal: 20000, verFactura: '', },
+    {producto: 'Bicicleta Scoot', cantidad: 1, vendedor: 'Monika Lopez', precioUnitario: 20000, precioTotal: 20000, verFactura: '',},
   ];
 
   constructor() { }
@@ -22,4 +21,9 @@ export class FacturaService {
     this.listFacturas.splice(index, 1);
   }
 
+  agregarFactura(factura: factura) {
+    this.listFacturas.unshift(factura);
+  }
+
 }
+
