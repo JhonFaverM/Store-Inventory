@@ -6,10 +6,17 @@ import { factura } from '../components/dashboard/interfaces/factura';
 })
 export class FacturaService {
 
+  cantidad!: any[];
+
+
   listFacturas: factura[] = [
-    {producto: 'Casettera', cantidad: 1, vendedor: 'Monika Lopez', precioUnitario: 100000, precioTotal: 20000, verFactura: '', },
-    {producto: 'Bicicleta Scoot', cantidad: 1, vendedor: 'Monika Lopez', precioUnitario: 20000, precioTotal: 20000, verFactura: '',},
+    {producto: 'Casettera', cantidad: 1, vendedor: 'Monika Lopez', precioUnitario: 100000, precioTotal: 20000, verFactura: '',},
+    {producto: 'Bicicleta Scoot', cantidad: 1, vendedor: 'Monika Lopez', precioUnitario: 20000, precioTotal: 20000, verFactura: '', },
   ];
+  precioUnitario!: any[];
+  precioTotal: any;
+
+
 
   constructor() { }
 
@@ -25,5 +32,6 @@ export class FacturaService {
     this.listFacturas.unshift(factura);
   }
 
+  
 }
 

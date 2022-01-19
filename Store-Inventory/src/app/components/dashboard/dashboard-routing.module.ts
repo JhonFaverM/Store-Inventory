@@ -11,7 +11,7 @@ const routes: Routes = [
     { path: '',component: InicioComponent },
     { path: 'facturas',component:  FacturasComponent },
     { path: 'crear-factura',component:  CrearFacturaComponent },
-    {  path: 'imp-factura',component:  ImpFacturaComponent }
+    { path: 'imp-factura',component:  ImpFacturaComponent }
   ]}
 ];
 

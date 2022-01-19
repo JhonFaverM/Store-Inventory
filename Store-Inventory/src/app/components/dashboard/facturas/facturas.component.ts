@@ -6,16 +6,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { FacturaService } from 'src/app/services/factura.service';
 import { factura } from '../interfaces/factura';
 
-/*
-export interface PeriodicElement {
-  date: string;
-  invoice: number;
-  client: string;
-  seller: string;
-  billScam: string;
-}
-*/
-
 
 
 @Component({

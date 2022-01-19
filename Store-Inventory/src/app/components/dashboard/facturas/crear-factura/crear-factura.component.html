@@ -7,14 +7,14 @@
                 <mat-grid-list cols="1" rowHeight="60">
                     <mat-grid-tile [colspan]="1" [rowspan]="1">
                         <mat-form-field class="longitud">
-                            <mat-label class="color">Cliente</mat-label>
+                            <mat-label class="color" >Cliente</mat-label>
                             <input matInput formControlName="factura">
                         </mat-form-field>
                     </mat-grid-tile>
                     
                     <mat-grid-tile [colspan]="1" [rowspan]="1">
                         <mat-form-field class="longitud">
-                                    <mat-label class="color">Vendedor</mat-label>
+                        <mat-label class="color">Vendedor</mat-label>
                                     <mat-select formControlName="vendedor">
                                       <mat-option *ngFor="let item of vendedor" [value]="item">
                                         {{item}}
@@ -31,17 +31,45 @@
             
     <h1 class="color_1">Adicionar Productos</h1>
 
+
+
     
     
     <mat-card style="margin-top: 10px;">
         <form autocomplete="off" [formGroup]="form" (ngSubmit)="agregarFactura()">
             
-            <mat-grid-list cols="1" rowHeight="70">
-            <img src="../../../assets/img/fondo.jpg" width="30%">
+            <mat-grid-list cols="1" rowHeight="60">
+            
             
                     
-                    <mat-grid-tile [colspan]="1" [rowspan]="1">                
-                        <mat-form-field class="ancho">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">                
+                    <mat-form-field class="ancho">                           
+                        <label form="" class="color">Producto</label>
+                        <mat-select class="form-control" formControlName="producto">
+                            <mat-option *ngFor="let item of producto" [value]="item">
+                                {{item}}
+                            </mat-option>                           
+                        </mat-select>
+                        <input matInput formControlName="producto">
+                    </mat-form-field>
+                </mat-grid-tile>
+
+
+                    <!-- 
+                            <label form="" class="color">Producto</label> //antes de mat selec
+                            <input matInput formControlName="producto"> //despues de mat selec
+
+
+                        <mat-option *ngFor="let nombre of producto" [value]="producto">
+                                {{producto}}
+                                </mat-option>
+
+                                <td><input formControlName="producto" type="text" name='product[]'  placeholder='Producto' class="form-control"/></td>
+
+
+
+                                <mat-grid-tile [colspan]="1" [rowspan]="1">                
+                        <mat-form-field class="ancho">                           
                             <label form="" class="color">Producto</label>
                             <mat-select class="form-control" formControlName="producto">
                                 <mat-option *ngFor="let item of producto" [value]="item">
@@ -52,18 +80,14 @@
                         </mat-form-field>
                     </mat-grid-tile>
 
-
-                    <!-- 
-                        <mat-option *ngFor="let nombre of producto" [value]="producto">
-                                {{producto}}
-                                </mat-option>
                     -->
 
 
                 <mat-grid-tile [colspan]="1" [rowspan]="1" >
                     <mat-form-field class="ancho">
                         <mat-label form="" class="color">Cantidad</mat-label>
-                        <input type="number" matInput formControlName="cantidad" >
+                        <input type="number" matInput formControlName="cantidad">
+                        
                     </mat-form-field>
                 </mat-grid-tile>
                 
@@ -84,12 +108,51 @@
 
                 <mat-grid-tile [colspan]="1" [rowspan]="1" >
                     <button type="submit" mat-raised-button color="primary">Agregar</button>
+                    &nbsp;<button routerLink="/dashboard/facturas" mat-raised-button color="primary">Volver</button>
                 </mat-grid-tile>
-
-                               
-
             </mat-grid-list>
+
+            <!-- 
+                 <ng-container matColumnDef="precioUnitario">
+                <th mat-header-cell *matHeaderCellDef class="color"> PRECIO UNITARIO </th>
+                <td mat-cell *matCellDef="let element" class="colon"> {{element.precioUnitario}} </td>
+            </ng-container>
+            -->
            
+
+            <div class="pull-right col-md-4">
+                <table class="table table-bordered table-hover" id="tab_logic_total">
+                        <tbody>
+                            
+                            <tr>
+                                <th class="text-center">Precio Unidad</th>
+                                <td class="text-center"><input type="number" name='sub_total' placeholder='0.00' class="form-control" id="sub_total" readonly/></td>
+                                <td mat-cell *matCellDef="let element" class="colon"> {{element.precioUnitario}} </td>
+                            </tr>
+
+                            <tr>
+                              <th class="text-center">Sub Total</th>
+                              <td class="text-center"><input type="number" name='sub_total' placeholder='0.00' class="form-control" id="sub_total" readonly/></td>
+                            </tr>
+                            <tr>
+                              <th class="text-center">Tax</th>
+                              <td class="text-center"><div class="input-group mb-2 mb-sm-0">
+                                  <input type="number" class="form-control" id="tax" placeholder="0">
+                                  <div class="input-group-addon">%</div>
+                                </div></td>
+                            </tr>
+                            <tr>
+                              <th class="text-center">Tax Amount</th>
+                              <td class="text-center"><input type="number" name='tax_amount' id="tax_amount" placeholder='0.00' class="form-control" readonly/></td>
+                            </tr>
+                            <tr>
+                              <th class="text-center">Grand Total</th>
+                              <td class="text-center"><input type="number" name='total_amount' id="total_amount" placeholder='0.00' class="form-control" readonly/></td>
+                            </tr>
+                          </tbody>                    
+                </table>
+            </div>
+            
 
         
 

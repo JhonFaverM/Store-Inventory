@@ -20,10 +20,11 @@ const listFacturas: factura[] = [];
 export class CrearFacturaComponent implements OnInit {
   //public dateNow = new Date()
   form: FormGroup;
-  precioUnitario: any;
+  precioUnitario!: number;
   cantidad: any;
-  precioTotal: any;
-  precioTot: any;
+  precioTotal!: any;
+  factura: any;
+
 
 
  vendedor = ['Jhon Machado', 'Monica Lopez', 'Pepe Perez'];
@@ -32,10 +33,6 @@ export class CrearFacturaComponent implements OnInit {
     'Rock Hopper Specialized', 'Expert specialized', 'Alligator Gw', 'Hyena Gw', 'Panter Gw', 
     'X-caliber Treck', 'Marlin Treck', 'Madone Slr'
   ];
-
-  
-  
-
   
   constructor(private fb: FormBuilder, 
               private _facturaService: FacturaService,
@@ -47,18 +44,8 @@ export class CrearFacturaComponent implements OnInit {
       vendedor: ['', Validators.required],
       producto: ['', Validators.required],
       precioUnitario: ['',  Validators.required],
-
-
-
-      precioTotal: this.precioUnitario * this.cantidad,
-
-
+      precioTotal: ['',  Validators.required],
     })
-
-
-
-
-
   }
 
   ngOnInit(): void {
@@ -76,8 +63,8 @@ export class CrearFacturaComponent implements OnInit {
       //precioTotal: this.precioUnitario * this.cantidad,
 
     };
-    console.log(user);
 
+    //console.log(this.form.get('precioUnitario')?.value);
 
     this._facturaService.agregarFactura(user);
     this.router.navigate(['/dashboard/facturas'])
@@ -89,11 +76,9 @@ export class CrearFacturaComponent implements OnInit {
     })
 
   }
-
-    calcularPrecioTotal = () => {
-      const precioTot = this.cantidad * this.precioUnitario;
-      this.precioTotal.value = this.precioTot
-
+    functionMultiply = () => {
+      const precioTotal = (parseInt(this.cantidad) * (this.precioUnitario));
+  
     };
     
  
